@@ -1,0 +1,26 @@
+name: Quality Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: npm install -g pnpm
+      - run: pnpm install
+      - run: pnpm run type-check
+      - run: pnpm test --run
+      
+    # 关键：测试失败直接阻断 PR 合并
+    if: failure()
+    steps:
+      - name: Fail PR on test failure
+        run: exit 1
