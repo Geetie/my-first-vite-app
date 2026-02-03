@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>✨ Vite 组件通信实战</h1>
+    <h1>✨ Vite 自动部署已激活！</h1>
     
     <!-- 父组件向子组件传递 message -->
     <MessageDisplay 
