@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
+// vitest.config.ts
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  server: {
-    port: 3000,        // 修改端口号
-    open: true         // 启动时自动打开浏览器
-  },
-  base: './'  
+  test: {
+    environment: 'happy-dom', // 👈 关键：启用 DOM 模拟
+    globals: true,            // 👈 全局暴露 expect/it 等
+    setupFiles: './tests/setup.ts' // 可选：全局测试设置
+  }
 })
