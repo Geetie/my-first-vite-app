@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "headers": [
@@ -22,18 +22,5 @@
         }
       ]
     }
-  ],
-  "github": {
-    "enabled": true,
-    "comments": true,          // 启用 PR 评论
-    "autoJobCancelation": true,
-    "previewProduction": false,
-    "branchFilter": [
-      "main",
-      "dev",
-      "feature/*"
-    ]
-  },
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist"
+  ]
 }
